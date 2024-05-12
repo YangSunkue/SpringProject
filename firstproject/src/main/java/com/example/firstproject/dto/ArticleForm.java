@@ -1,5 +1,7 @@
 package com.example.firstproject.dto;
 
+import com.example.firstproject.entity.Article;
+
 public class ArticleForm {
 
     private String title;  // 제목을 받을 필드
@@ -18,5 +20,11 @@ public class ArticleForm {
                 "title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 '}';
+    }
+
+    // 객체에 id정보는 없으므로 null을 준다
+    // GeneratedValue에 의해 id값이 할당될 것이다
+    public Article toEntity() {
+        return new Article(null, title, content);
     }
 }
